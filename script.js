@@ -1,3 +1,9 @@
+const bookContainer = document.querySelector('.main');
+const modal = document.querySelector('.modal');
+const openBtn = document.querySelector('.new-book')
+const closeBtn = document.querySelector('#close-btn');
+const submitBtn = document.querySelector('#submit-btn');
+
 let myLibrary = [{
     title: 'The Grapes of Wrath',
     author: 'John Steinback',
@@ -62,8 +68,6 @@ function addBookToLibrary() {
 addBookToLibrary();
 */
 
-const bookContainer = document.querySelector('.main');
-
 myLibrary.forEach((book) => {
     let newDiv = document.createElement('div');
     newDiv.classList.add('card');
@@ -83,14 +87,16 @@ myLibrary.forEach((book) => {
     pagesDiv.textContent = `Page Count: ${book.pages}`;
 }); 
 
-const modal = document.querySelector('.modal');
-const openBtn = document.querySelector('.new-book')
-const closeBtn = document.querySelector('#close-btn');
-
 openBtn.onclick = () => { modal.style.display = 'flex'; }
 closeBtn.onclick = () => { modal.style.display = 'none'; }
 window.onclick = (event) => { 
     if (event.target === modal) {
         modal.style.display = 'none';
     }
+}
+
+submitBtn.addEventListener('click', submitted);
+
+function submitted(event) {
+    event.preventDefault();
 }
