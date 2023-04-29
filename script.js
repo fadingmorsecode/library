@@ -92,7 +92,7 @@ function submitted(event) {
 }
 
 function printBook(book) {
-    let newDiv = document.createElement('div');
+      let newDiv = document.createElement('div');
       newDiv.classList.add('card');
       bookContainer.appendChild(newDiv);  
       let titleDiv = document.createElement('div');
@@ -116,4 +116,13 @@ function printBook(book) {
       titleDiv.style.fontWeight = 'bold';
       authorDiv.textContent = `Author: ${book.author}`;
       pagesDiv.textContent = `Page Count: ${book.pages}`;
-  }
+      removeButton.addEventListener('click', remove);
+
+      function remove() {
+        newDiv.dataset.indexNumber = myLibrary.indexOf(book);
+        myLibrary.splice(newDiv.dataset.indexNumber, 1);
+        newDiv.remove();
+        console.table(myLibrary);
+      }
+}
+
