@@ -17,7 +17,32 @@ let myLibrary = [{
     title: 'Farenheit 451',
     author: 'Ray Bradbury',
     pages: '158'
-}
+},
+{
+    title: 'The Hunger Games',
+    author: 'Suzanne Collins',
+    pages: '386'
+},
+{
+    title: 'Of Mice and Men',
+    author: 'John Steinback',
+    pages: '107'
+},
+{
+    title: 'The Catcher in the Rye',
+    author: 'J. D. Salinger',
+    pages: '234'
+},
+{
+    title: 'East of Eden',
+    author: 'John Steinback',
+    pages: '704'
+},
+{
+    title: 'As I Lay Dying',
+    author: 'William Faulkner',
+    pages: '208'
+},
 ];
 
 function book(title, author, pages) {
@@ -42,17 +67,21 @@ const bookContainer = document.querySelector('.main');
 
 myLibrary.forEach((book) => {
     let newDiv = document.createElement('div');
+    newDiv.classList.add('card');
+    bookContainer.appendChild(newDiv);
+
     let titleDiv = document.createElement('div');
     let authorDiv = document.createElement('div');
     let pagesDiv = document.createElement('div');
-    newDiv.classList.add('.card');
-    bookContainer.appendChild(newDiv);
+
     newDiv.appendChild(titleDiv);
     newDiv.appendChild(authorDiv);
     newDiv.appendChild(pagesDiv);
+
     titleDiv.textContent = book.title;
-    authorDiv.textContent = book.author;
-    pagesDiv.textContent = book.pages;
+    titleDiv.style.fontWeight = 'bold';
+    authorDiv.textContent = `Author: ${book.author}`;
+    pagesDiv.textContent = `Page Count: ${book.pages}`;
 }); 
 
 console.log(myLibrary);
