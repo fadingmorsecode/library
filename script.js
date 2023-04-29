@@ -83,4 +83,14 @@ myLibrary.forEach((book) => {
     pagesDiv.textContent = `Page Count: ${book.pages}`;
 }); 
 
-console.log(myLibrary);
+const modal = document.querySelector('.modal');
+const openBtn = document.querySelector('.new-book')
+const closeBtn = document.querySelector('#close-btn');
+
+openBtn.onclick = () => { modal.style.display = 'flex'; }
+closeBtn.onclick = () => { modal.style.display = 'none'; }
+window.onclick = (event) => { 
+    if (event.target === modal) {
+        modal.style.display = 'none';
+    }
+}
