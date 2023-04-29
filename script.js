@@ -3,6 +3,10 @@ const modal = document.querySelector('.modal');
 const openBtn = document.querySelector('.new-book')
 const closeBtn = document.querySelector('#close-btn');
 const submitBtn = document.querySelector('#submit-btn');
+const title = document.querySelector('#title');
+const author = document.querySelector('#author');
+const pages = document.querySelector('#pages');
+
 
 let myLibrary = [{
     title: 'The Grapes of Wrath',
@@ -56,35 +60,9 @@ function book(title, author, pages) {
     this.author = author;
     this.pages = pages;
 }
-/*
-function addBookToLibrary() {
-    let bookTitle = prompt('Please enter book title', 'Title');
-    let bookAuthor = prompt('Please enter author', 'Author');
-    let bookPages = prompt('Please enter number of pages', 'Pages');
-    let newBook = new book(`${bookTitle}`, `${bookAuthor}`, `${bookPages}`);
-    myLibrary.push(newBook);
-}
 
-addBookToLibrary();
-*/
-
-myLibrary.forEach((book) => {
-    let newDiv = document.createElement('div');
-    newDiv.classList.add('card');
-    bookContainer.appendChild(newDiv);
-
-    let titleDiv = document.createElement('div');
-    let authorDiv = document.createElement('div');
-    let pagesDiv = document.createElement('div');
-
-    newDiv.appendChild(titleDiv);
-    newDiv.appendChild(authorDiv);
-    newDiv.appendChild(pagesDiv);
-
-    titleDiv.textContent = book.title;
-    titleDiv.style.fontWeight = 'bold';
-    authorDiv.textContent = `Author: ${book.author}`;
-    pagesDiv.textContent = `Page Count: ${book.pages}`;
+myLibrary.forEach((obj) => {
+   printBook(obj);
 }); 
 
 openBtn.onclick = () => { modal.style.display = 'flex'; }
@@ -99,4 +77,32 @@ submitBtn.addEventListener('click', submitted);
 
 function submitted(event) {
     event.preventDefault();
+    let titleContent = title.value;
+    let authorContent = author.value;
+    let pagesContent = pages.value;
+    let newBook = new book(titleContent, authorContent, pagesContent);
+    myLibrary.push(newBook);
+    let latestItem = myLibrary[myLibrary.length - 1] ;
+    if (!titleContent || !authorContent || !pagesContent) {
+        alert('Please enter book details');
+    } else {
+    modal.style.display = 'none';
+    printBook(latestItem);
+    }
 }
+
+function printBook(book) {
+    let newDiv = document.createElement('div');
+      newDiv.classList.add('card');
+      bookContainer.appendChild(newDiv);  
+      let titleDiv = document.createElement('div');
+      let authorDiv = document.createElement('div');
+      let pagesDiv = document.createElement('div');
+      newDiv.appendChild(titleDiv);
+      newDiv.appendChild(authorDiv);
+      newDiv.appendChild(pagesDiv);
+      titleDiv.textContent = book.title
+      titleDiv.style.fontWeight = 'bold';
+      authorDiv.textContent = `Author: ${book.author}`;
+      pagesDiv.textContent = `Page Count: ${book.pages}`;
+  }
