@@ -70,7 +70,7 @@ body {
     padding: 1rem;
 }
 
-button[type='button'] {
+.new-book {
     height: 40px;
     width: 120px;
     background-color: #9CC5A1;
@@ -190,4 +190,27 @@ div label{
     font-family: var(--main-font);
     font-size: 23px;
     font-weight: 500;
+}
+
+.btns-container {
+    display: flex;
+    gap: 10px;
+}
+
+.card-btn {
+ padding: 5px;
+ color: white;
+ font-family: var(--main-font);
+ font-weight: bold;
+ font-size: 16px;
+ border: none;
+ border-radius: 7px;
+}
+
+.remove-btn {
+    background-color: lightcoral;
+}
+
+.status-btn {
+    background-color: #9CC5A1;
 }

@@ -98,9 +98,20 @@ function printBook(book) {
       let titleDiv = document.createElement('div');
       let authorDiv = document.createElement('div');
       let pagesDiv = document.createElement('div');
+      let buttonsContainer = document.createElement('div');
+      let removeButton = document.createElement('button');
+      let statusButton = document.createElement('button');
       newDiv.appendChild(titleDiv);
       newDiv.appendChild(authorDiv);
       newDiv.appendChild(pagesDiv);
+      newDiv.appendChild(buttonsContainer);
+      buttonsContainer.appendChild(removeButton);
+      buttonsContainer.appendChild(statusButton);
+      buttonsContainer.classList.add('btns-container');
+      removeButton.classList.add('remove-btn', 'card-btn');
+      statusButton.classList.add('status-btn', 'card-btn');
+      removeButton.textContent = 'Remove';
+      statusButton.textContent = 'Placeholder'
       titleDiv.textContent = book.title
       titleDiv.style.fontWeight = 'bold';
       authorDiv.textContent = `Author: ${book.author}`;
