@@ -59,4 +59,9 @@ body {
 
 .main {
     background-color: #9cc5a1;
+    display: grid;
+}
+
+.card {
+
 }

@@ -37,4 +37,22 @@ function addBookToLibrary() {
 
 addBookToLibrary();
 */
+
+const bookContainer = document.querySelector('.main');
+
+myLibrary.forEach((book) => {
+    let newDiv = document.createElement('div');
+    let titleDiv = document.createElement('div');
+    let authorDiv = document.createElement('div');
+    let pagesDiv = document.createElement('div');
+    newDiv.classList.add('.card');
+    bookContainer.appendChild(newDiv);
+    newDiv.appendChild(titleDiv);
+    newDiv.appendChild(authorDiv);
+    newDiv.appendChild(pagesDiv);
+    titleDiv.textContent = book.title;
+    authorDiv.textContent = book.author;
+    pagesDiv.textContent = book.pages;
+}); 
+
 console.log(myLibrary);
