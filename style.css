@@ -62,11 +62,35 @@ body {
 .header {
     background-color: #dce1de;
     display: flex;
-    align-items: center;;;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+button[type='button'] {
+    height: 3.5rem;
+    width: 10rem;
+    background-color: #9CC5A1;
+    border-radius: 10px;
+    border: solid 2px black;
+    color: black;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+button[type='button']:active {
+    transform: scale(1.1);
+}
+
+.header-text {
+    display: flex;
     font-family: var(--main-font);
     font-size: 2.5rem;
     padding: 1rem;
+    color: #0047ab;
+    font-weight: bold;
 }
 
 .main {
