@@ -50,7 +50,7 @@ function book(title, author, pages) {
     this.author = author;
     this.pages = pages;
 }
-
+/*
 function addBookToLibrary() {
     let bookTitle = prompt('Please enter book title', 'Title');
     let bookAuthor = prompt('Please enter author', 'Author');
@@ -60,6 +60,7 @@ function addBookToLibrary() {
 }
 
 addBookToLibrary();
+*/
 
 const bookContainer = document.querySelector('.main');
 
