@@ -10,10 +10,11 @@ const pages = document.querySelector('#pages');
 
 let myLibrary = [];
 
-function book(title, author, pages) {
+function book(title, author, pages, unread) {
     this.title = title;
     this.author = author;
     this.pages = pages;
+    this.status = unread;
 }
 
 openBtn.onclick = () => { modal.style.display = 'flex'; }
@@ -85,11 +86,17 @@ function printBook(book) {
             statusButton.classList.add('read');
             status = 'read';
             statusButton.textContent = 'Read';
+            newDiv.dataset.indexNumber = myLibrary.indexOf(book);
+            myLibrary[newDiv.dataset.indexNumber].status = status;
+            console.log(myLibrary);
         } else if (status === 'read') {
             statusButton.classList.remove('read');
             statusButton.classList.add('unread');
             status = 'unread';
             statusButton.textContent = 'Unread';
+            newDiv.dataset.indexNumber = myLibrary.indexOf(book);
+            myLibrary[newDiv.dataset.indexNumber].status = status;
+            console.log(myLibrary);
         }
       }    
 }
