@@ -17,6 +17,10 @@ function book(title, author, pages, unread) {
     this.status = unread;
 }
 
+book.prototype.toggleRead = function(status) {
+    this.status = status;
+}
+
 openBtn.onclick = () => { modal.style.display = 'flex'; }
 closeBtn.onclick = () => { modal.style.display = 'none'; }
 window.onclick = (event) => { 
@@ -87,7 +91,7 @@ function printBook(book) {
             status = 'read';
             statusButton.textContent = 'Read';
             newDiv.dataset.indexNumber = myLibrary.indexOf(book);
-            myLibrary[newDiv.dataset.indexNumber].status = status;
+            myLibrary[newDiv.dataset.indexNumber].toggleRead(status);
             console.log(myLibrary);
         } else if (status === 'read') {
             statusButton.classList.remove('read');
@@ -95,7 +99,7 @@ function printBook(book) {
             status = 'unread';
             statusButton.textContent = 'Unread';
             newDiv.dataset.indexNumber = myLibrary.indexOf(book);
-            myLibrary[newDiv.dataset.indexNumber].status = status;
+            myLibrary[newDiv.dataset.indexNumber].toggleRead(status);
             console.log(myLibrary);
         }
       }    
