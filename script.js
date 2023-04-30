@@ -8,62 +8,13 @@ const author = document.querySelector('#author');
 const pages = document.querySelector('#pages');
 
 
-let myLibrary = [{
-    title: 'The Grapes of Wrath',
-    author: 'John Steinback',
-    pages: '530'
-},
-{
-    title: 'The Great Gatsby',
-    author: 'F. Scott Fitzgerald',
-    pages: '130'
-},
-{
-    title: 'Ethan Frome',
-    author: 'Edith Wharton',
-    pages: '195'
-},
-{
-    title: 'Farenheit 451',
-    author: 'Ray Bradbury',
-    pages: '158'
-},
-{
-    title: 'The Hunger Games',
-    author: 'Suzanne Collins',
-    pages: '386'
-},
-{
-    title: 'Of Mice and Men',
-    author: 'John Steinback',
-    pages: '107'
-},
-{
-    title: 'The Catcher in the Rye',
-    author: 'J. D. Salinger',
-    pages: '234'
-},
-{
-    title: 'East of Eden',
-    author: 'John Steinback',
-    pages: '704'
-},
-{
-    title: 'As I Lay Dying',
-    author: 'William Faulkner',
-    pages: '208'
-},
-];
+let myLibrary = [];
 
 function book(title, author, pages) {
     this.title = title;
     this.author = author;
     this.pages = pages;
 }
-
-myLibrary.forEach((obj) => {
-   printBook(obj);
-}); 
 
 openBtn.onclick = () => { modal.style.display = 'flex'; }
 closeBtn.onclick = () => { modal.style.display = 'none'; }
@@ -79,12 +30,13 @@ function submitted(event) {
     event.preventDefault();
     let titleContent = title.value;
     let authorContent = author.value;
-    let pagesContent = pages.value;
+    let pagesContent = Number(pages.value);
+    console.log(pagesContent);
     let newBook = new book(titleContent, authorContent, pagesContent);
     myLibrary.push(newBook);
     let latestItem = myLibrary[myLibrary.length - 1] ;
-    if (!titleContent || !authorContent || !pagesContent) {
-        alert('Please enter book details');
+    if (!titleContent || !authorContent || !pagesContent || typeof(pagesContent) !== 'number') {
+        alert('Please enter valid book details');
     } else {
     modal.style.display = 'none';
     printBook(latestItem);
@@ -101,6 +53,7 @@ function printBook(book) {
       let buttonsContainer = document.createElement('div');
       let removeButton = document.createElement('button');
       let statusButton = document.createElement('button');
+      let status = 'unread'
       newDiv.appendChild(titleDiv);
       newDiv.appendChild(authorDiv);
       newDiv.appendChild(pagesDiv);
@@ -109,20 +62,35 @@ function printBook(book) {
       buttonsContainer.appendChild(statusButton);
       buttonsContainer.classList.add('btns-container');
       removeButton.classList.add('remove-btn', 'card-btn');
-      statusButton.classList.add('status-btn', 'card-btn');
+      statusButton.classList.add('status-btn', 'card-btn', 'unread');
       removeButton.textContent = 'Remove';
-      statusButton.textContent = 'Placeholder'
+      statusButton.textContent = 'Unread'
       titleDiv.textContent = book.title
       titleDiv.style.fontWeight = 'bold';
       authorDiv.textContent = `Author: ${book.author}`;
       pagesDiv.textContent = `Page Count: ${book.pages}`;
-      removeButton.addEventListener('click', remove);
+      removeButton.addEventListener('click', removeCard);
+      statusButton.addEventListener('click', toggleStatus)
 
-      function remove() {
+      function removeCard() {
         newDiv.dataset.indexNumber = myLibrary.indexOf(book);
         myLibrary.splice(newDiv.dataset.indexNumber, 1);
         newDiv.remove();
         console.table(myLibrary);
       }
+
+      function toggleStatus() {
+        if (status === 'unread') {
+            statusButton.classList.remove('unread');
+            statusButton.classList.add('read');
+            status = 'read';
+            statusButton.textContent = 'Read';
+        } else if (status === 'read') {
+            statusButton.classList.remove('read');
+            statusButton.classList.add('unread');
+            status = 'unread';
+            statusButton.textContent = 'Unread';
+        }
+      }    
 }
 
