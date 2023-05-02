@@ -1,0 +1,30 @@
+{
+  "devDependencies": {
+    "eslint": "^8.39.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-import": "^2.27.5",
+    "prettier": "2.8.8"
+  },
+  "prettier": {
+    "singleQuote": true
+  },
+  "name": "library",
+  "description": "[PAGES LINK] # Project Summary: [SUMMARY TEXT] # Goals: * Create a small library app # In Action:  [GIF OR PHOTO LINK] # Reflection: [REFLECTION TEXT]",
+  "version": "1.0.0",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CobaltJester/library.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CobaltJester/library/issues"
+  },
+  "homepage": "https://github.com/CobaltJester/library#readme"
+}
