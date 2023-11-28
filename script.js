@@ -105,32 +105,23 @@ function printBook(book) {
 
 // create new object from form and then call print function
 function submitted(event) {
-  event.preventDefault();
-  const titleContent = titleSelector.value;
-  const authorContent = authorSelector.value;
-  const pagesContent = Number(pagesSelector.value);
-  if (statusCheck.checked === true) {
-    statusContent = 'read';
-  } else {
-    statusContent = 'unread';
-  }
-  const newBook = new Book(
-    titleContent,
-    authorContent,
-    pagesContent,
-    statusContent
-  );
-  myLibrary.push(newBook);
-  const latestItem = myLibrary[myLibrary.length - 1];
-  if (
-    !titleContent ||
-    !authorContent ||
-    !pagesContent ||
-    typeof pagesContent !== 'number'
-  ) {
-    // eslint-disable-next-line no-alert
-    alert('Please enter valid book details');
-  } else {
+  if (document.querySelector('.modal-form').checkValidity()) {
+    const titleContent = titleSelector.value;
+    const authorContent = authorSelector.value;
+    const pagesContent = Number(pagesSelector.value);
+    if (statusCheck.checked === true) {
+      statusContent = 'read';
+    } else {
+      statusContent = 'unread';
+    }
+    const newBook = new Book(
+      titleContent,
+      authorContent,
+      pagesContent,
+      statusContent
+    );
+    myLibrary.push(newBook);
+    const latestItem = myLibrary[myLibrary.length - 1];
     if (statusCheck.checked === true) {
       readStatus = 'read';
     } else {
@@ -138,6 +129,7 @@ function submitted(event) {
     }
     modal.style.display = 'none';
     printBook(latestItem);
+    event.preventDefault();
   }
 }
 

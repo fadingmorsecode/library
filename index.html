@@ -1,57 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=\, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=\, initial-scale=1.0" />
     <title>Library</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer></script>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="header">
-        <div class="header-text">Cobalt Library</div>
-        <button type="button" class="new-book">New Book</button>
+      <div class="header-text">Cobalt Library</div>
+      <button type="button" class="new-book">New Book</button>
     </div>
     <div class="main"></div>
     <div class="modal">
-        <div class="modal-content">
-            <form class="modal-form">
-                <fieldset>
-                    <div class="form-items">
-                        <legend>New Book Details</legend>
-                    </div>
+      <div class="modal-content">
+        <form class="modal-form">
+          <fieldset>
+            <div class="form-items">
+              <legend>New Book Details</legend>
+            </div>
 
-                    <div class="form-items">
-                        <label for="title">Title:</label>
-                        <input type="text" id="title">
-                    </div>
+            <div class="form-items">
+              <label for="title">Title:</label>
+              <input type="text" id="title" required />
+            </div>
 
-                    <div class="form-items">
-                        <label for="author">Author:</label>
-                        <input type="text" id="author">
-                    </div>
+            <div class="form-items">
+              <label for="author">Author:</label>
+              <input type="text" id="author" required />
+            </div>
 
-                    <div class="form-items">
-                        <label for="pages">Pages:</label>
-                        <input type="text" id="pages">
-                    </div>
+            <div class="form-items">
+              <label for="pages">Pages:</label>
+              <input type="text" id="pages" required />
+            </div>
 
-                    <div class="status-check">
-                        <input type="checkbox" id="read-check">
-                        <label for="read-check">Have you read this?</label>
-                    </div>
+            <div class="status-check">
+              <input type="checkbox" id="read-check" />
+              <label for="read-check">Have you read this?</label>
+            </div>
 
-                    <div class="form-btns">
-                        <button type="submit" id="submit-btn">Submit</button>
-                        <button id="close-btn">Close</button>
-                    </div>
-                </fieldset>
-            </form>
-        </div>
+            <div class="form-btns">
+              <button type="submit" id="submit-btn">Submit</button>
+              <button id="close-btn">Close</button>
+            </div>
+          </fieldset>
+        </form>
+      </div>
     </div>
-</body>
-
+  </body>
 </html>
