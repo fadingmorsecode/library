@@ -1,5 +1,5 @@
 # Library Project
-https://cobaltjester.github.io/library/
+https://fadingmorsecode.github.io/library/
 # Project Summary:
 This project's main purpose is to demonstrate the ability to implement an object constructor and then use it to create book items with details that can be filled out by the user. It uses toggles to allow the user to say whether they have read the book or not. This project is not meant to be responsive but I hope to give it a revist in the future after getting to that point in the curriculum.
 # Goals:
